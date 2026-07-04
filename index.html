@@ -180,11 +180,15 @@
     <hr style="margin:30px 0;border:none;border-top:1px solid #E0E0E0;">
 
     <p style="font-size:13px;color:#888;margin:0;">
-        © 2025 VU LMS Modified<br>
+        © <span id="current-year"></span> VU LMS Modified<br>
         Developed by <strong>Ali</strong>
     </p>
     
 </div>
+
+<script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
