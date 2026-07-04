@@ -77,9 +77,9 @@
         and enjoy an optimized workspace layout experience.
     </p>
 
-    <!-- 2. Release Tracker Label -->
-    <p style="margin-top:-10px;margin-bottom:20px;font-size:14px;color:#666;">
-        <strong>Latest Version:</strong> v1.0.8
+    <!-- 2. Release Tracker Label with ID hook -->
+    <p id="version" style="margin-top:-10px;margin-bottom:20px;font-size:14px;color:#666;">
+        Loading latest version...
     </p>
 
     <a href="https://github.com/muhammadali151/vulms-updater/releases/latest/download/app-release.apk"
@@ -186,8 +186,22 @@
     
 </div>
 
+<!-- Automated Context Handling Script -->
 <script>
+    // System clock handler for the footer element
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // Async data fetcher mapping JSON definitions to layout items
+    fetch("update.json")
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("version").innerHTML =
+            "<strong>Latest Version:</strong> " + data.versionName;
+    })
+    .catch(() => {
+        document.getElementById("version").innerHTML =
+            "<strong>Latest Version:</strong> Unknown";
+    });
 </script>
 
 </body>
